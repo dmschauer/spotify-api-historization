@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  # application defines one service per artist of interest
+  spotify_python_arctic_monkeys:
+    build: .
+    environment: 
+      - ARTIST_NAME=Arctic Monkeys
+      - INTERVAL_SECONDS=5
+    volumes:
+      - spotify_json:/json_data_mount
+  spotify_python_jay-z:
+    build: .
+    environment: 
+      - ARTIST_NAME=Jay-Z
+      - INTERVAL_SECONDS=30
+    volumes:
+      - spotify_json:/json_data_mount
+  spotify_python_raf_camora:
+    build: .
+    environment: 
+      - ARTIST_NAME=RAF Camora
+      - INTERVAL_SECONDS=86400
+    volumes:
+      - spotify_json:/json_data_mount
+volumes:
+  spotify_json: 
